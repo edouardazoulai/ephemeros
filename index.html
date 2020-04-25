@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ephemeros</title>
+  </head>
+  <body>
+    <h1>Ephemeros</h1>
+    <p>Click the button below to generate a new link. To join an existing chat, just type its url.</p>
+    <button id="generate">Generate a temporary chat.</button>
+    <a href="" id="generated"></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+      function uuidv4() {
+        return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+        );
+      }
+
+      const baseUrl = window.location.origin + '/chat/';
+      $('#generate').click(function() {
+        var newLink = baseUrl + uuidv4();
+        $('#generated').text(newLink);
+        $('#generated').attr('href', newLink);
+      });
+    </script>
+  </body>
+</html>
