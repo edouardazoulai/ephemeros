@@ -12,16 +12,25 @@ app.get('/chat/:id', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  socket.on('join room', function(room) {
+    socket.join(room);
+    socket.broadcast.to(room).emit('admin message', 'new user connection');
+  });
 
   socket.on('chat message', (msg) => {
-    console.log('new message: ' + msg);
-    socket.broadcast.emit('chat message', msg);
+    Object.keys(socket.rooms).forEach((room) => {
+      socket.broadcast.to(room).emit('chat message', msg);
+    });
+  });
+
+  socket.on('disconnecting', () => {
+    Object.keys(socket.rooms).forEach((room) => {
+      socket.broadcast.to(room).emit('admin message', 'user disconnected');
+    });
   });
 
   socket.on('disconnect', () => {
     console.log('user disconnected');
-    socket.broadcast.emit('admin message', 'user disconnected');
   });
 });
 

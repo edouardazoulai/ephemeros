@@ -10,7 +10,7 @@
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
+      #messages .received:nth-child(odd) { background: #eee; }
       #messages .sent { text-align: right; }
       #messages .admin { text-align: center; background: #a8b8d0; }
     </style>
@@ -49,8 +49,12 @@
           return false;
         });
 
+        socket.on('connect', function() {
+          socket.emit('join room', room);
+        });
+
         socket.on('chat message', function(msg) {
-          $('#messages').append($('<li>').text(msg));
+          $('#messages').append($('<li calss="received">').text(msg));
         });
 
         socket.on('admin message', function(msg) {
