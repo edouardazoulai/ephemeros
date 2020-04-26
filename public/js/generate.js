@@ -10,9 +10,11 @@ const baseUrl = window.location.origin + '/chat/';
 
 // Modifies DOM once it is loaded.
 $(function () {
+  $('#generated_container').addClass('d-none');
   $('#generate').click(function() {
     var newLink = baseUrl + uuidv4();
     $('#generated').text(newLink);
     $('#generated').attr('href', newLink);
+    $('#generated_container').removeClass('d-none').addClass('d-inline-flex');
   });
 });

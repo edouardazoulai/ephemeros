@@ -1,15 +1,37 @@
 <!doctype html>
 <html>
   <head>
-    <title>Ephemeros</title>
+    <title>ephemeros</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/js/generate.js"></script>
   </head>
   <body>
-    <h1>Ephemeros</h1>
-    <p>Click the button below to generate a new link. To join an existing chat, just type its url.</p>
-    <button id="generate">Generate a temporary chat.</button>
-    <a href="" id="generated"></a>
+    <nav class="navbar navbar-light bg-light d-flex justify-content-center">
+      <a class="navbar-brand" href="/">
+        <img src="/images/logo.svg" width="60" height="40" alt="">
+      </a>
+      <h2>ephemeros</h2>
+    </nav>
+    <main role="main" class="container text-center">
+      <div class="headline">
+        <h1 class="py-3">Ephemeros</h1>
+        <p class="lead">
+          Click the button below to generate a new link. To join an existing chat, just type its url.
+        </p>
+      </div>
+      <div>
+        <button id="generate" class="btn btn-light shadow-sm p-2 mb-3">
+          Generate a temporary chat.
+        </button>
+      </div>
+      <div id="generated_container" class="text-break shadow-sm p-3 mb-3 bg-light rounded">
+        <a href="" id="generated" class="text-decoration-none"></a>
+      </div>
+    </main>
   </body>
 </html>

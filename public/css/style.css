@@ -1,0 +1,36 @@
+:root {
+    --color1: white;
+    --color2-lighter: #ededed;
+    --color2: #e5e5e5;
+    --color3: #fca311;
+    --color3-darker: #c2720c;
+    --color4: #14213d;
+    --color5: #1a1a1a;
+}
+
+body {
+    background-color: var(--color2);
+}
+
+.navbar {
+    background-color: var(--color2-lighter);
+}
+
+.navbar h2 {
+    font-family: HelveticaNeue-Light, "Helvetica Neue Light", Helvetica Neue,
+        Helvetica, Arial, sans-serif;
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
+}
+
+.headline {
+    color: var(--color5);
+}
+
+a {
+    color: var(--color3);
+}
+
+a:hover {
+    color: var(--color3-darker);
+}
