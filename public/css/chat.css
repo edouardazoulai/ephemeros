@@ -1,0 +1,22 @@
+#messages {
+  height: calc(100vh - 335px); /* accounts for lead size */
+  overflow-y: scroll; /* vertical scroll for the messages */
+}
+
+@media (min-width: 576px) {
+    #messages {
+      height: calc(100vh - 335px); /* accounts for lead size */
+    }
+}
+
+@media (min-width: 768px) {
+    #messages {
+      height: calc(100vh - 325px); /* accounts for lead size */
+    }
+}
+
+@media (min-width: 992px) {
+    #messages {
+      height: calc(100vh - 295px); /* space for fixed navbar (50px), "main" title (140px), footer (52px) */
+    }
+}

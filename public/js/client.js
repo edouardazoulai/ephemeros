@@ -17,7 +17,7 @@ $(function () {
     e.preventDefault(); // prevents page reloading
     var msg = $('#message').val();
     socket.emit('chat message', msg);
-    $('#messages').append($('<li class="sent">').text(msg));
+    $('#messages').append($('<li class="sent text-right">').text(msg));
     $('#message').val('');
     return false;
   });
@@ -34,6 +34,6 @@ $(function () {
 
   // When the server sends a message.
   socket.on('admin message', function(msg) {
-    $('#messages').append($('<li class="admin">').text(msg));
+    $('#messages').append($('<li class="admin text-center my-2">').text(msg));
   });
 });
