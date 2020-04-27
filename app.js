@@ -7,6 +7,7 @@ var io = require('socket.io')(http);
 
 var port = process.env.PORT || 5000; // set the port
 app.use(express.static(__dirname + '/public')); // set the static folder
+app.use('/pgp', express.static(__dirname + '/node_modules/openpgp/dist/lightweight'));
 
 
 // Routing.

@@ -9,6 +9,16 @@ if (!room.match(uuid)) {
   window.location.replace(window.location.origin); // Redirect to /
 }
 
+// Generates a pgp key.
+(async () => {
+  const { privateKeyArmored, publicKeyArmored, revocationCertificate } =
+    await openpgp.generateKey({ userIds: [{}], curve: 'ed25519' });
+
+    console.log(privateKeyArmored);     // '-----BEGIN PGP PRIVATE KEY BLOCK ... '
+    console.log(publicKeyArmored);      // '-----BEGIN PGP PUBLIC KEY BLOCK ... '
+    console.log(revocationCertificate); // '-----BEGIN PGP PUBLIC KEY BLOCK ... '
+})();
+
 // Modifies DOM once it is loaded.
 $(function () {
   var socket = io();

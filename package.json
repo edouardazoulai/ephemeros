@@ -4,6 +4,7 @@
   "description": "first draft of a simple messaging app",
   "dependencies": {
     "express": "^4.17.1",
+    "openpgp": "^4.10.4",
     "socket.io": "^2.3.0"
   },
   "scripts": {
