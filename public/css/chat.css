@@ -1,9 +1,9 @@
 #messages {
-  height: calc(100vh - 335px); /* accounts for lead size */
+  height: calc(100vh - 375px); /* accounts for lead size */
   overflow-y: scroll; /* vertical scroll for the messages */
 }
 
-@media (min-width: 576px) {
+@media (min-width: 411px) {
     #messages {
       height: calc(100vh - 335px); /* accounts for lead size */
     }
@@ -20,3 +20,4 @@
       height: calc(100vh - 295px); /* space for fixed navbar (50px), "main" title (140px), footer (52px) */
     }
 }
+
