@@ -17,7 +17,7 @@ $(function () {
     e.preventDefault(); // prevents page reloading
     var msg = $('#message').val();
     socket.emit('chat message', msg);
-    $('#messages').append($('<li class="sent text-right">').text(msg));
+    $('#messages').append($('<li class="sent my-1 align-self-end text-break text-wrap">').text(msg));
     $('#message').val('');
     return false;
   });
@@ -29,11 +29,11 @@ $(function () {
 
   // When a user sends a message.
   socket.on('chat message', function(msg) {
-    $('#messages').append($('<li calss="received">').text(msg));
+    $('#messages').append($('<li class="received my-1 align-self-start text-break text-wrap">').text(msg));
   });
 
   // When the server sends a message.
   socket.on('admin message', function(msg) {
-    $('#messages').append($('<li class="admin text-center my-2">').text(msg));
+    $('#messages').append($('<li class="admin my-1 align-self-center text-break text-wrap">').text(msg));
   });
 });

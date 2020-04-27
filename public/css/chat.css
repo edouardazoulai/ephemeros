@@ -21,3 +21,28 @@
     }
 }
 
+
+.received, .sent {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-radius: 1rem;
+  max-width: 20em;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.received {
+  background-color: rgba(141, 141, 141, .5);
+  color: #1a1a1a;
+}
+
+.sent {
+  background-color: #2a3750;
+  color: white;
+}
+
+.admin {
+  color: #fca311;
+}

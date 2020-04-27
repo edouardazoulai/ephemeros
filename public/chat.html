@@ -7,20 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/chat.css">
-
-    <style>
-      /** { margin: 0; padding: 0; box-sizing: border-box; }*/
-      /*body { font: 13px Helvetica, Arial; }*/
-      /*form { padding: 3px; position: fixed; bottom: 0; }*/
-      /*form input { padding: 10px; width: 90%; margin-right: 0.5%; }*/
-      /*form button { width: 9%; padding: 10px; }*/
-      /*#messages { list-style-type: none; margin: 0; padding: 0; }*/
-      /*#messages li { padding: 5px 10px; }*/
-      /*#messages .received:nth-child(odd) { background: #eee; }*/
-      /*#messages .sent { text-align: right; }*/
-      /*#messages .admin { text-align: center; background: #a8b8d0; }*/
-    </style>
-
+    
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/js/client.js"></script>
@@ -38,7 +25,7 @@
         The messages exchanged here are only stored on your device. Refresh or close the page to delete them.
       </p>
       <hr>
-      <ul id="messages" class="list-unstyled"></ul>
+      <ul id="messages" class="list-unstyled d-flex flex-column"></ul>
       <form id="textbar">
         <div class="input-group">
           <input id="message" autocomplete="off" class="form-control" />
