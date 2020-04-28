@@ -1,26 +1,9 @@
 #messages {
-  height: calc(100vh - 375px); /* accounts for lead size */
+  height: calc(65vh);
   overflow-y: scroll; /* vertical scroll for the messages */
+  background-color: rgba(141, 141, 141, .3);
+  border-radius: .3rem;
 }
-
-@media (min-width: 411px) {
-    #messages {
-      height: calc(100vh - 335px); /* accounts for lead size */
-    }
-}
-
-@media (min-width: 768px) {
-    #messages {
-      height: calc(100vh - 325px); /* accounts for lead size */
-    }
-}
-
-@media (min-width: 992px) {
-    #messages {
-      height: calc(100vh - 295px); /* space for fixed navbar (50px), "main" title (140px), footer (52px) */
-    }
-}
-
 
 .received, .sent {
   padding-left: 1rem;
@@ -29,13 +12,10 @@
   padding-bottom: .5rem;
   border-radius: 1rem;
   max-width: 20em;
-  box-sizing: border-box;
-  display: inline-block;
 }
 
 .received {
-  background-color: rgba(141, 141, 141, .5);
-  color: #1a1a1a;
+  background-color: var(--color2);
 }
 
 .sent {
@@ -44,5 +24,5 @@
 }
 
 .admin {
-  color: #fca311;
+  color: var(--color3);
 }
