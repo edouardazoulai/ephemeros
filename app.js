@@ -22,21 +22,32 @@ app.get('/chat/:id', (req, res) => {
 
 // Socket.io event handling.
 io.on('connection', (socket) => {
-  socket.on('join room', function(room) {
+  socket.on('join room', (room, publicKey) => {
     socket.join(room);
+    socket.publickey = publicKey;
     socket.broadcast.to(room).emit('admin message', 'new user connection');
+    socket.broadcast.to(room).emit('add key', publicKey);
+
+    // Add public keys of all clients in the room.
+    var clients = io.sockets.adapter.rooms[room].sockets;
+    for (var clientId in clients) {
+      var client = io.sockets.connected[clientId];
+      if (client != socket)
+        socket.emit('add key', client.publickey);
+    }
   });
 
   socket.on('chat message', (msg) => {
-    Object.keys(socket.rooms).forEach((room) => {
+    for (var room in socket.rooms) {
       socket.broadcast.to(room).emit('chat message', msg);
-    });
+    }
   });
 
   socket.on('disconnecting', () => {
-    Object.keys(socket.rooms).forEach((room) => {
+    for (var room in socket.rooms) {
       socket.broadcast.to(room).emit('admin message', 'user disconnected');
-    });
+      socket.broadcast.to(room).emit('remove key', socket.publickey);
+    }
   });
 
   socket.on('disconnect', () => {
