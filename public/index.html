@@ -6,16 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
-    <script src="/js/generate.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
   </head>
   <body>
     <nav class="navbar navbar-light bg-light d-flex justify-content-center shadow-sm ">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand d-inline-flex" href="/">
         <img src="/images/logo.svg" width="60" height="40" alt="">
+        <h2>ephemeros</h2>
       </a>
-      <h2>ephemeros</h2>
     </nav>
     <main role="main" class="container">
       <section class="headline text-center">
@@ -43,21 +41,21 @@
           This service was created to provide access to a quick and secure way of communicating without leaving any traces.<br>
           You should use ephemeros because:
         </p>
-        <ol>
+        <ol id="features">
           <div class="row">
             <div class="col-sm-6">
-              <li>It respects your privacy. All communications are encrypted locally with PGP. Only the people you shared the webchat url knows the informations you are sharing.</li>
+              <li class="mb-3">It respects your privacy. All communications are encrypted locally with <a href="https://www.openpgp.org">PGP</a>. Only the people you shared the webchat url knows the informations you are sharing.</li>
             </div>
             <div class="col-sm-6">
-              <li>It is temporary. No one can read your converstaion once you and your correspondent close the window. No conversations are ever saved by the host.</li>
+              <li class="mb-3">It is temporary. No one can read your converstaion once you and your correspondent close the window. No conversations are ever saved by the host.</li>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
-              <li>It is completely open source. You are free to make your clone of the website, host it anywhere you want (tor ?) or read the source code to make sure it is secure. Check out the <a href="https://github.com/diduu/ephemeros">GitHub repository</a>.</li>
+              <li class="mb-3">It is completely open source. You are free to make your clone of the website, host it anywhere you want (tor ?) or read the source code to make sure it is secure. Check out the <a href="https://github.com/diduu/ephemeros">GitHub repository</a>.</li>
             </div>
             <div class="col-sm-6">
-              <li>You can use it without limit. (even if you're making a thousand web chats).</li>
+              <li class="mb-3">You can use it without limitations, for free.</li>
             </div>
           </div>
         </ol>
@@ -73,5 +71,8 @@
         </p>
       </section>
     </main>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+    <script src="/js/generate.js"></script>
   </body>
 </html>

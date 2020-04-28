@@ -7,22 +7,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/chat.css">
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
-    <script src="/pgp/openpgp.min.js"></script>
-    <script type="text/javascript">
-      // Necessary to use the lightweight version of openpgp.
-      openpgp.config.indutny_elliptic_path = '/pgp/elliptic.min.js';
-    </script>
-    <script src="/js/client.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-light bg-light d-flex justify-content-center">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand d-inline-flex" href="/">
         <img src="/images/logo.svg" width="60" height="40" alt="">
+        <h2>ephemeros</h2>
       </a>
-      <h2>ephemeros</h2>
     </nav>
     <main role="main" class="container mt-2">
       <h1>Welcome to your chat.</h1>
@@ -40,5 +31,14 @@
         </div>
       </form>
     </main>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+    <script src="/pgp/openpgp.min.js"></script>
+    <script type="text/javascript">
+      // Necessary to use the lightweight version of openpgp.
+      openpgp.config.indutny_elliptic_path = '/pgp/elliptic.min.js';
+    </script>
+    <script src="/js/client.js"></script>
   </body>
 </html>

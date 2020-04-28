@@ -1,0 +1,23 @@
+.headline {
+    color: var(--color5);
+}
+
+#features {
+    list-style: none;
+    counter-reset: featureCount;
+}
+
+#features li {
+    counter-increment: featureCount;
+}
+
+#features li:before {
+    margin-right: .5em;
+    content: counter(featureCount);
+    background: var(--color4);
+    border-radius: 100%;
+    color: white;
+    width: 1.5em;
+    text-align: center;
+    display: inline-block;
+}

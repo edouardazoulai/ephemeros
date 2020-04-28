@@ -11,10 +11,6 @@
 }
 
 body {
-    background-color: var(--color2);
-}
-
-.navbar {
     background-color: var(--color2-lighter);
 }
 
@@ -23,10 +19,6 @@ body {
         Helvetica, Arial, sans-serif;
     margin-block-start: 0.1em;
     margin-block-end: 0.1em;
-}
-
-.headline {
-    color: var(--color5);
 }
 
 a {
