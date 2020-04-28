@@ -12,6 +12,7 @@ app.use('/pgp', express.static(__dirname + '/node_modules/openpgp/dist/lightweig
 // Force https on prod.
 if(process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
+    console.log(req.header('x-forwarded-proto'));
     if (req.header('x-forwarded-proto') !== 'https')
       res.redirect(`https://${req.header('host')}${req.url}`)
     else
