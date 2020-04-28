@@ -61,12 +61,14 @@ $(function () {
   socket.on('chat message', function(msg) {
     decrypt(msg, sessionStorage.privateKey).then((msg) => {
       $('#messages').append($(`<li class="received align-self-start ${liStyle}">`).text(msg));
+  $('#messages').scrollTop($('#messages')[0].scrollHeight); // scroll to bottom
     });
   });
 
   // When the server sends a message.
   socket.on('admin message', function(msg) {
     $('#messages').append($(`<li class="admin align-self-center ${liStyle}">`).text(msg));
+    $('#messages').scrollTop($('#messages')[0].scrollHeight);
   });
 
   // When a new user joins or we join a room with people already in.
@@ -96,6 +98,7 @@ $(function () {
 
     $('#messages').append($(`<li class="sent align-self-end ${liStyle}">`).text(msg));
     $('#message').val('');
+    $('#messages').scrollTop($('#messages')[0].scrollHeight);
     return false;
   });
 });

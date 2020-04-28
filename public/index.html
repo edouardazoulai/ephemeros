@@ -11,27 +11,67 @@
     <script src="/js/generate.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light d-flex justify-content-center">
+    <nav class="navbar navbar-light bg-light d-flex justify-content-center shadow-sm ">
       <a class="navbar-brand" href="/">
         <img src="/images/logo.svg" width="60" height="40" alt="">
       </a>
       <h2>ephemeros</h2>
     </nav>
-    <main role="main" class="container text-center">
-      <div class="headline">
-        <h1 class="py-3">Ephemeros</h1>
-        <p class="lead">
-          Click the button below to generate a new link. To join an existing chat, just type its url.
+    <main role="main" class="container">
+      <section class="headline text-center">
+        <h1 class="py-3">A Simple Temporary Messaging App</h1>
+        <p>
+          Want to start right away ?<br>
+          Click the button below to open a new chat or join an existing one, by typing its url.
         </p>
-      </div>
-      <div>
-        <button id="generate" class="btn btn-light shadow-sm p-2 mb-3">
-          Generate a temporary chat.
-        </button>
-      </div>
-      <div id="generated_container" class="text-break shadow-sm p-3 mb-3 bg-light rounded">
-        <a href="" id="generated" class="text-decoration-none"></a>
-      </div>
+        <div>
+          <button id="generate" class="btn btn-light shadow-sm p-2 mb-3">
+            Generate a temporary chat
+          </button>
+        </div>
+        <div id="generated_container" class="text-break shadow-sm p-3 mb-3 bg-light rounded">
+          <a href="" id="generated" class="text-decoration-none"></a>
+        </div>
+      </section>
+      <hr>
+      <section class="about">
+        <h3>Why Ephemeros ?</h3>
+        <footer class="blockquote-footer mb-3">
+          ἐφήμερος • (ephḗmeros) m: living only one day; short-lived
+        </footer>
+        <p>
+          This service was created to provide access to a quick and secure way of communicating without leaving any traces.<br>
+          You should use ephemeros because:
+        </p>
+        <ol>
+          <div class="row">
+            <div class="col-sm-6">
+              <li>It respects your privacy. All communications are encrypted locally with PGP. Only the people you shared the webchat url knows the informations you are sharing.</li>
+            </div>
+            <div class="col-sm-6">
+              <li>It is temporary. No one can read your converstaion once you and your correspondent close the window. No conversations are ever saved by the host.</li>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <li>It is completely open source. You are free to make your clone of the website, host it anywhere you want (tor ?) or read the source code to make sure it is secure. Check out the <a href="https://github.com/diduu/ephemeros">GitHub repository</a>.</li>
+            </div>
+            <div class="col-sm-6">
+              <li>You can use it without limit. (even if you're making a thousand web chats).</li>
+            </div>
+          </div>
+        </ol>
+      </section>
+      <hr>
+      <section class="forDevs">
+        <h3 class="mb-3">Technologies used</h3>
+        <p>
+          I created this website in order to learn various technologies. Here is a description of the technologies and APIs used:
+        </p>
+        <p>
+          TODO
+        </p>
+      </section>
     </main>
   </body>
 </html>
