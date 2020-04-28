@@ -9,17 +9,6 @@ var port = process.env.PORT || 5000; // set the port
 app.use(express.static(__dirname + '/public')); // set the static folder
 app.use('/pgp', express.static(__dirname + '/node_modules/openpgp/dist/lightweight'));
 
-// Force https on prod.
-console.log(process.env.NODE_ENV);
-if(process.env.NODE_ENV === 'production') {
-  app.use((req, res, next) => {
-    console.log(req.header('x-forwarded-proto'));
-    if (req.header('x-forwarded-proto') !== 'https')
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    else
-      next()
-  })
-}
 
 
 // Routing.
@@ -72,3 +61,15 @@ io.on('connection', (socket) => {
 http.listen(port, () => {
   console.log('listening on *:' + port);
 });
+
+// Force https on prod.
+console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    console.log(req.header('x-forwarded-proto'));
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
