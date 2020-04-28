@@ -10,6 +10,7 @@ app.use(express.static(__dirname + '/public')); // set the static folder
 app.use('/pgp', express.static(__dirname + '/node_modules/openpgp/dist/lightweight'));
 
 // Force https on prod.
+console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     console.log(req.header('x-forwarded-proto'));
