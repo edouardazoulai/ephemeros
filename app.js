@@ -60,14 +60,10 @@ io.on('connection', (socket) => {
       socket.broadcast.to(room).emit('remove key', socket.publickey);
     }
   });
-
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
 });
 
 
 // Start the server.
 http.listen(port, () => {
-  console.log('listening on *:' + port);
+  console.log('listening on port ' + port);
 });
