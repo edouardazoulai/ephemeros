@@ -1,3 +1,7 @@
 # Ephemeros
 
-I made this web app to learn nodejs, express and socket.io. It is temporary web chat generator. You create the chat and share the link with anyone you want to talk to. No history is kept whatsoever. I plan on making it client-side encrypted.
+I made this web app to learn nodejs and javascript in genetal. It is temporary web chat generator. You create the chat and share the link with anyone you want to talk to. No history is kept whatsoever. It is client-side encrypted using PGP. It supports multiple users although at some point if you talk to too many users at the same time, it will be toot slow to use due to the pgp encryption mechanism.
+
+To run it locally, do `node app.js`. It is available on <https://ephemerios.herokuapp.com>.
+
+You are free to re-use, host or modify any part of the code.
