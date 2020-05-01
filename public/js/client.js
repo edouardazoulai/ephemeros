@@ -47,13 +47,13 @@ async function decrypt(message, privKey) {
 $(function () {
   var keyList = []; // connected users public keys
   var socket = io(); // instantiate the socket connection
-  const liStyle = 'my-1 text-break text-wrap';
 
   $('#loginForm').submit((e) => {
     e.preventDefault(); // prevents page reloading
     var username = $('#username').val().trim();
-    
+
     if (!username) {
+      $('#username').val('');
       return false;
     }
 
@@ -71,15 +71,20 @@ $(function () {
   // When a user sends a message.
   socket.on('chat message', (data) => {
     decrypt(data.msg, sessionStorage.privateKey).then((decryptedMsg) => {
-      $('#messages').append($(`<li class="received align-self-start ${liStyle}">`).text(decryptedMsg));
-      $('#messages').append($(`<li class="author align-self-start">`).text(data.username));
-  $('#messages').scrollTop($('#messages')[0].scrollHeight); // scroll to bottom
+      // We use jQuery .text() function to sanitize input.
+      msgDiv = $('<div class="text-break text-wrap">').text(decryptedMsg);
+      authorDiv = $('<div class="author">').text(data.username);
+      container = $('<li class="received align-self-start my-1">');
+      
+      $('#messages').append(container.append([msgDiv, authorDiv]));
+      $('#messages').scrollTop($('#messages')[0].scrollHeight); // scroll to bottom
     });
   });
 
   // When the server sends a message.
   socket.on('admin message', (msg) => {
-    $('#messages').append($(`<li class="admin align-self-center ${liStyle}">`).text(msg));
+    message = $('<li class="admin align-self-center my-1 text-break text-wrap">');
+    $('#messages').append(message.text(msg));
     $('#messages').scrollTop($('#messages')[0].scrollHeight);
   });
 
@@ -108,7 +113,8 @@ $(function () {
         // Do nothing when there is no one else connceted.
       });
 
-    $('#messages').append($(`<li class="sent align-self-end ${liStyle}">`).text(msg));
+    message = $('<li class="sent align-self-end my-1 text-break text-wrap">');
+    $('#messages').append(message.text(msg));
     $('#message').val('');
     $('#messages').scrollTop($('#messages')[0].scrollHeight);
     return false;

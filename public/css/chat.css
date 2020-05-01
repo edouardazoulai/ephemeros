@@ -29,9 +29,8 @@
 
 .author {
   color: rgba(130, 130, 130, 1);
-  padding-left: .2rem;
-  margin-top: -0.4rem;
-  font-size: .9rem;
+  margin-top: -0.2rem;
+  font-size: .8rem;
 }
 
 #chat {
