@@ -23,15 +23,23 @@
         The messages exchanged here are only stored on your device. Refresh or close the page to delete them.
       </p>
       <hr>
-      <ul id="messages" class="list-unstyled d-flex flex-column p-2"></ul>
-      <form id="textbar">
-        <div class="input-group">
-          <input id="message" autocomplete="off" class="form-control" />
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary">Send</button>
+      <div id="login">
+        <h3 class="title">Choose a username</h3>
+        <form id="loginForm">
+          <input id="username" type="text" maxlength="14" class="form-control" />        
+        </form>
+      </div>
+      <div id="chat">
+        <ul id="messages" class="list-unstyled d-flex flex-column p-2"></ul>
+        <form id="textbar">
+          <div class="input-group">
+            <input id="message" autocomplete="off" class="form-control" />
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary">Send</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </main>
 
     <footer class="container text-right my-3">

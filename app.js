@@ -33,10 +33,11 @@ app.get('/chat/:id', (req, res) => {
 
 // Socket.io event handling.
 io.on('connection', (socket) => {
-  socket.on('join room', (room, publicKey) => {
+  socket.on('join room', (room, publicKey, username) => {
     socket.join(room);
     socket.publickey = publicKey;
-    socket.broadcast.to(room).emit('admin message', 'new user connection');
+    socket.username = username;
+    socket.broadcast.to(room).emit('admin message', `${username} joined the conversation`);
     socket.broadcast.to(room).emit('add key', publicKey);
 
     // Add public keys of all clients in the room.
@@ -50,13 +51,16 @@ io.on('connection', (socket) => {
 
   socket.on('chat message', (msg) => {
     for (var room in socket.rooms) {
-      socket.broadcast.to(room).emit('chat message', msg);
+      socket.broadcast.to(room).emit('chat message', {
+        username: socket.username,
+        msg: msg
+      });
     }
   });
 
   socket.on('disconnecting', () => {
     for (var room in socket.rooms) {
-      socket.broadcast.to(room).emit('admin message', 'user disconnected');
+      socket.broadcast.to(room).emit('admin message', `${socket.username} disconnected`);
       socket.broadcast.to(room).emit('remove key', socket.publickey);
     }
   });

@@ -49,42 +49,54 @@ $(function () {
   var socket = io(); // instantiate the socket connection
   const liStyle = 'my-1 text-break text-wrap';
 
-  // Join room from url when the socket connects.
-  socket.on('connect', function() {
+  $('#loginForm').submit((e) => {
+    e.preventDefault(); // prevents page reloading
+    var username = $('#username').val().trim();
+    
+    if (!username) {
+      return false;
+    }
+
+    $('#login').hide();
+    $('#login').off('click');
+    $('#chat').show();
+    
+    // Join room from url when the username is entered.
     keygen().then((result) => {
-      socket.emit('join room', room, result.publicKeyArmored);
+      socket.emit('join room', room, result.publicKeyArmored, username);
       sessionStorage.privateKey = result.privateKeyArmored;
     });
   });
 
   // When a user sends a message.
-  socket.on('chat message', function(msg) {
-    decrypt(msg, sessionStorage.privateKey).then((msg) => {
-      $('#messages').append($(`<li class="received align-self-start ${liStyle}">`).text(msg));
+  socket.on('chat message', (data) => {
+    decrypt(data.msg, sessionStorage.privateKey).then((decryptedMsg) => {
+      $('#messages').append($(`<li class="received align-self-start ${liStyle}">`).text(decryptedMsg));
+      $('#messages').append($(`<li class="author align-self-start">`).text(data.username));
   $('#messages').scrollTop($('#messages')[0].scrollHeight); // scroll to bottom
     });
   });
 
   // When the server sends a message.
-  socket.on('admin message', function(msg) {
+  socket.on('admin message', (msg) => {
     $('#messages').append($(`<li class="admin align-self-center ${liStyle}">`).text(msg));
     $('#messages').scrollTop($('#messages')[0].scrollHeight);
   });
 
   // When a new user joins or we join a room with people already in.
-  socket.on('add key', function(key) {
+  socket.on('add key', (key) => {
     keyList.push(key);
   });
 
   // When a participant leaves.
-  socket.on('remove key', function(key) {
+  socket.on('remove key', (key) => {
     var i = keyList.indexOf(key);
     if (i > -1)
       keyList.splice(i, 1);
   });
 
   // Send a message.
-  $('form').submit(function(e) {
+  $('#textbar').submit((e) => {
     e.preventDefault(); // prevents page reloading
     var msg = $('#message').val();
 

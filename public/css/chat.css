@@ -1,5 +1,5 @@
 #messages {
-  height: calc(65vh);
+  height: 65vh;
   overflow-y: scroll; /* vertical scroll for the messages */
   background-color: rgba(141, 141, 141, .3);
   border-radius: .3rem;
@@ -25,4 +25,15 @@
 
 .admin {
   color: var(--color3);
+}
+
+.author {
+  color: rgba(130, 130, 130, 1);
+  padding-left: .2rem;
+  margin-top: -0.4rem;
+  font-size: .9rem;
+}
+
+#chat {
+  display: none;
 }
