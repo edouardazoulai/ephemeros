@@ -58,6 +58,12 @@ io.on('connection', (socket) => {
     }
   });
 
+  socket.on('remove messages', () => {
+    for (var room in socket.rooms) {
+      socket.broadcast.to(room).emit('remove messages');
+    }
+  });
+
   socket.on('disconnecting', () => {
     for (var room in socket.rooms) {
       socket.broadcast.to(room).emit('admin message', `${socket.username} disconnected`);

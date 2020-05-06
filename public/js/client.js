@@ -88,6 +88,11 @@ $(function () {
     $('#messages').scrollTop($('#messages')[0].scrollHeight);
   });
 
+  // When a user decides to delete messages
+  socket.on('remove messages', () => {
+    $('#messages').empty();
+  });
+
   // When a new user joins or we join a room with people already in.
   socket.on('add key', (key) => {
     keyList.push(key);
@@ -118,5 +123,14 @@ $(function () {
     $('#message').val('');
     $('#messages').scrollTop($('#messages')[0].scrollHeight);
     return false;
+  });
+
+  // Delete messages
+  $('#deleteMessages').click(() => {
+    var remove = confirm('Are you sure you want to delete messages ? They will be deleted for all users connected to this chat.');
+    if (remove) {
+      socket.emit('remove messages');
+      $('#messages').empty();
+    }
   });
 });
